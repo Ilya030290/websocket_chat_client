@@ -1,0 +1,20 @@
+@import 'src/constants/colors';
+
+.chatContainer {
+  margin-bottom: 10px;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $foggyWhite;
+  border-radius: 6px;
+  box-shadow: 0 3px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+
+  & .chatTitle {
+    color: $deepPurple;
+    font-weight: bold;
+    font-family: Montserrat-Bold, sans-serif;
+  }
+}
