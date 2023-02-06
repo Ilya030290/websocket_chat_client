@@ -61,8 +61,8 @@ const ChatPage = () => {
     <div className={styles.chatPageWrapper}>
       <div className={styles.box}>
         <NavLink to={ROUTES.MAIN_PAGE} className={styles.link}>
-          <MdKeyboardBackspace />
-          <span>Back to home page</span>
+          <MdKeyboardBackspace className={styles.icon} />
+          <span className={styles.text}>Back to home page</span>
         </NavLink>
         <div className={styles.chatPageContainer}>
           <ChatMessages messages={messages} user_id={user?._id} />
