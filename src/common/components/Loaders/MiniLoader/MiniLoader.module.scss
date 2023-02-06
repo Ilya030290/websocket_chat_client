@@ -1,0 +1,19 @@
+.spinner {
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
