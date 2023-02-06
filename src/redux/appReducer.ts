@@ -95,6 +95,7 @@ export const destroyConnection = createAsyncThunk(
   (params, thunkAPI) => {
     socketApi.destroyConnection();
     thunkAPI.dispatch(setIsOnline(false));
+    thunkAPI.dispatch(setMessages([]));
   }
 );
 
