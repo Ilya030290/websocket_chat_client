@@ -13,6 +13,7 @@ import {
   AppReducer,
   CreateConnection,
   CreateNewChat,
+  DeleteChatById,
   DestroyConnection,
   FetchChats,
   FetchMessages,
@@ -116,6 +117,10 @@ export const addNewChat = createAsyncThunk(
     thunkAPI.dispatch(setChat(''));
   }
 );
+
+export const deleteChat = createAsyncThunk(DeleteChatById, (chat_id?: string) => {
+  socketApi.deleteChat(chat_id);
+});
 
 export const joinToChat = createAsyncThunk(
   JoinToChat,

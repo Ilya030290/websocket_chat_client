@@ -4,6 +4,7 @@ import {
   ChatCreated,
   Connect,
   CreateChat,
+  DeleteChat,
   Endpoint,
   GetMessagesHistory,
   Join,
@@ -33,6 +34,9 @@ export const socketApi = {
   },
   createNewChat(chatName: string) {
     this.socket?.emit(CreateChat, chatName);
+  },
+  deleteChat(chat_id?: string) {
+    this.socket?.emit(DeleteChat, chat_id);
   },
   joinToChat(name?: string, chat_id?: string, user_id?: string) {
     this.socket?.emit(Join, { name, chat_id, user_id });

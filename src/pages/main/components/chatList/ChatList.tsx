@@ -1,22 +1,28 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { MdDelete } from 'react-icons/md';
 
 import Chat from '../chat';
-import { ChatInterface } from '../../../../types/types';
+import { deleteChat } from '../../../../redux/appReducer';
+import { ChatInterface, useAppDispatch } from '../../../../types/types';
 import styles from './ChatList.module.scss';
 
 const ChatList = ({ chats }: { chats: ChatInterface[] }) => {
+  const dispatch = useAppDispatch();
+
+  const removeChat = (chat_id?: string) => {
+    dispatch(deleteChat(chat_id));
+  };
+
   return (
     <section className={styles.chatListWrapper}>
       <div className={styles.chatListContainer}>
         {chats.map((chat) => (
-          <NavLink
-            className={styles.link}
-            key={chat._id}
-            to={`/chat/${chat._id}/${chat.name.toLowerCase()}`}
-          >
-            <Chat name={chat.name} />
-          </NavLink>
+          <div key={chat._id} className={styles.chat}>
+            <Chat chat_id={chat._id} name={chat.name} />
+            <button className={styles.removeButton} onClick={() => removeChat(chat._id)}>
+              <MdDelete className={styles.buttonIcon} />
+            </button>
+          </div>
         ))}
       </div>
     </section>
