@@ -1,9 +1,9 @@
 import React from 'react';
-import { MdDelete } from 'react-icons/md';
 
 import Chat from '../chat';
 import { deleteChat } from '../../../../redux/appReducer';
 import { ChatInterface, useAppDispatch } from '../../../../types/types';
+import deleteIcon from '../../../../assets/delete-message.png';
 import styles from './ChatList.module.scss';
 
 const ChatList = ({ chats }: { chats: ChatInterface[] }) => {
@@ -20,7 +20,7 @@ const ChatList = ({ chats }: { chats: ChatInterface[] }) => {
           <div key={chat._id} className={styles.chat}>
             <Chat chat_id={chat._id} name={chat.name} />
             <button className={styles.removeButton} onClick={() => removeChat(chat._id)}>
-              <MdDelete className={styles.buttonIcon} />
+              <img src={deleteIcon} className={styles.buttonIcon} alt={'iconButton'} />
             </button>
           </div>
         ))}

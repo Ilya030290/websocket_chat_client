@@ -1,7 +1,7 @@
 import React from 'react';
-import { MdOutlinePlaylistAdd } from 'react-icons/md';
 
 import { Input } from '../../../../types/types';
+import Icon from '../../../../assets/conversation.png';
 import styles from './mainInput.module.scss';
 
 const MainInput = ({ value, createNewChat, onChangeHandler }: Input) => {
@@ -22,7 +22,7 @@ const MainInput = ({ value, createNewChat, onChangeHandler }: Input) => {
           onKeyDown={onKeyDownHandler}
         />
         <button onClick={createNewChat}>
-          <MdOutlinePlaylistAdd className={styles.buttonIcon} />
+          <img src={Icon} className={styles.buttonIcon} alt={'iconButton'} />
         </button>
       </div>
     </div>

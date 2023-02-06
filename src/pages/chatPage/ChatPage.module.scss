@@ -9,7 +9,7 @@
   background-color: $warmGray;
 
   & .box {
-    height: 80%;
+    height: 85%;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     }
     @media screen and (min-width: $xLarge){
       width: 40%;
-      height: 80%;
+      height: 85%;
     }
 
     & .chatPageContainer {
@@ -54,23 +54,22 @@
       text-decoration: none;
       @media screen and (max-width: $medium){
         position: absolute;
-        top: 60px;
-        left: 2px;
+        top: 34px;
+        left: 0;
         z-index: 2;
       }
 
       & .text {
-        margin-left: 4px;
+        margin-left: 2px;
+        line-height: 0.9;
         @media screen and (max-width: $medium){
           display: none;
         }
       }
 
       & .icon {
-        @media screen and (max-width: $medium){
           width: 30px;
-          height: 25px;
-        }
+          height: 30px;
       }
 
       &:hover {

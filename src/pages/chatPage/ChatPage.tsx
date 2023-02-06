@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, NavLink, useParams } from 'react-router-dom';
-import { MdKeyboardBackspace } from 'react-icons/md';
 
 import { selectUser } from '../../redux/authReducer';
 import {
@@ -20,6 +19,7 @@ import { useAppDispatch } from '../../types/types';
 import ChatMessages from './components/chatMessages';
 import ChatInput from './components/chatInput';
 import { ROUTES } from '../../router/routes';
+import BackArrowIcon from '../../assets/back.png';
 import styles from './ChatPage.module.scss';
 
 const ChatPage = () => {
@@ -61,7 +61,7 @@ const ChatPage = () => {
     <div className={styles.chatPageWrapper}>
       <div className={styles.box}>
         <NavLink to={ROUTES.MAIN_PAGE} className={styles.link}>
-          <MdKeyboardBackspace className={styles.icon} />
+          <img src={BackArrowIcon} className={styles.icon} alt={'backIcon'} />
           <span className={styles.text}>Back to home page</span>
         </NavLink>
         <div className={styles.chatPageContainer}>

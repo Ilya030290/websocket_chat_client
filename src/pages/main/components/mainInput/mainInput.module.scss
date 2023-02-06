@@ -54,7 +54,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $oceanBlue;
+      background-color: $white;
       border: none;
       box-shadow: 0 2px 3px rgba(0,0,0,0.3);
       border-radius: 50%;
@@ -68,8 +68,7 @@
 
       & .buttonIcon {
         width: 100%;
-        height: 100%;
-        color: $white;
+        height: 70%;
 
         &:hover {
           color: $black;
