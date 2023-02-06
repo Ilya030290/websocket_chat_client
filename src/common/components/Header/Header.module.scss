@@ -6,49 +6,70 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: $deepPurple;
+  background-color: $white;
 
   & .container {
     height: 100%;
-    width: 40%;
+    width: 33%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     & .logo {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
     }
 
-    & h2 {
-      color: $foggyWhite;
-      font-family: Montserrat-Bold, 'sans-serif';
+    & .user {
+      min-width: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      & .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      & span {
+        font-size: large;
+        color: $polarGray;
+      }
     }
 
-    & div {
-      min-width: 160px;
+    & .status {
+      width: 58px;
+      font-size: medium;
+      font-weight: normal;
+      color: $polarGray;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      & .avatar {
-        width: 40px;
-        height: 40px;
+      & .light {
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
+        background-color: $seaGreen;
       }
 
-      & .logoutButton {
-        width: 75px;
-        height: 36px;
-        color: $white;
-        background-color: $oceanBlue;
-        border: none;
-        border-radius: 6px;
-        font-size: medium;
-        font-weight: normal;
-        cursor: pointer;
+      & .statusText {
+        line-height: 0.8;
       }
+    }
+
+    & .logoutButton {
+      width: 80px;
+      height: 30px;
+      color: $white;
+      background-color: $oceanBlue;
+      border: none;
+      border-radius: 22px;
+      font-size: medium;
+      font-weight: normal;
+      cursor: pointer;
     }
   }
 }

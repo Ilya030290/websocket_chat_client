@@ -2,15 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Chat from '../chat';
+import { ChatInterface } from '../../../../types/types';
 import styles from './ChatList.module.scss';
 
-const ChatList = () => {
-  const chats = [
-    { _id: 1, name: 'Football chat' },
-    { _id: 2, name: 'Developers chat' },
-    { _id: 3, name: 'Flood' },
-  ];
-
+const ChatList = ({ chats }: { chats: ChatInterface[] }) => {
   return (
     <section className={styles.chatListWrapper}>
       <div className={styles.chatListContainer}>

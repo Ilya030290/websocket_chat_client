@@ -1,13 +1,13 @@
 @import 'src/constants/colors';
 
 .chatContainer {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   height: 80px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $foggyWhite;
+  background-color: $white;
   border-radius: 6px;
   box-shadow: 0 3px 4px rgba(0,0,0,0.3);
   cursor: pointer;

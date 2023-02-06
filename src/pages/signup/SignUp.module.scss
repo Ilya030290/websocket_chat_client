@@ -49,101 +49,112 @@
         height: 470px;
       }
 
-      & .signupForm {
-        width: 360px;
-        padding: 30px 10px;
+      & .signUpFormContainer {
 
-        & .title {
-          font-family: Poppins-Regular, sans-serif;
-          font-weight: 700;
-          font-size: 24px;
-          color: #668;
-          line-height: 1.2;
-          text-align: center;
-          text-transform: uppercase;
-          display: block;
-          padding-bottom: 40px;
-        }
+        & .signupForm {
+          width: 360px;
+          padding: 30px 10px;
 
-        & .wrapInput {
-          position: relative;
-          width: 100%;
-          margin-bottom: 14px;
-          z-index: 1;
-
-          & .inputCommonStyle {
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 1.5;
-            color: $deepPurple;
+          & .title {
+            font-family: Poppins-Regular, sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #668;
+            line-height: 1.2;
+            text-align: center;
             text-transform: uppercase;
             display: block;
-            width: 80%;
-            background: $darkWhite;
-            height: 50px;
-            border-radius: 25px;
-            padding-left: 68px;
-            outline: none;
-            border: none;
+            padding-bottom: 40px;
           }
 
-          & .nameSymbol {
-            @include SymbolStyle;
-
-            &::before {
-              content: "\1F464";
-            }
-          }
-
-          & .emailSymbol {
-            @include SymbolStyle;
-
-            &::before {
-              content: "\1F4E9";
-            }
-          }
-
-          & .pasSymbol {
-            @include SymbolStyle;
-
-            &::before {
-              content: "\1F510";
-            }
-          }
-        }
-
-        & .signUpButton {
-          margin-top: 10%;
-          margin-left: 15%;
-          width: 70%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          padding-top: 20px;
-
-          & button {
-            margin: 0;
-            font-family: Montserrat-Bold, sans-serif;
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 1.5;
-            color: $white;
-            text-transform: uppercase;
+          & .wrapInput {
+            position: relative;
             width: 100%;
-            height: 40px;
-            border-radius: 25px;
-            background: $oceanBlue;
-            border: none;
-            cursor: pointer;
+            margin-bottom: 14px;
+            z-index: 1;
 
-            &:hover {
-              background-color: $deepPurple;
+            & .inputCommonStyle {
+              font-weight: 600;
+              font-size: 15px;
+              line-height: 1.5;
+              color: $deepPurple;
+              display: block;
+              width: 80%;
+              background: $darkWhite;
+              height: 50px;
+              border-radius: 25px;
+              padding-left: 68px;
+              outline: none;
+              border: none;
+            }
+
+            & .nameSymbol {
+              @include SymbolStyle;
+
+              &::before {
+                content: "\1F464";
+              }
+            }
+
+            & .emailSymbol {
+              @include SymbolStyle;
+
+              &::before {
+                content: "\1F4E9";
+              }
+            }
+
+            & .pasSymbol {
+              @include SymbolStyle;
+
+              &::before {
+                content: "\1F510";
+              }
+            }
+          }
+
+          & .error {
+            font-family: Poppins, sans-serif;
+            font-size: small;
+            font-weight: normal;
+            color: $red;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 6px;
+          }
+
+          & .signUpButton {
+            margin-top: 10%;
+            margin-left: 15%;
+            width: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 20px;
+
+            & button {
+              margin: 0;
+              font-family: Montserrat-Bold, sans-serif;
+              font-weight: 600;
+              font-size: 15px;
+              line-height: 1.5;
+              color: $white;
+              width: 100%;
+              height: 40px;
+              border-radius: 25px;
+              background: $oceanBlue;
+              border: none;
+              cursor: pointer;
+
+              &:hover {
+                background-color: $deepPurple;
+              }
             }
           }
         }
 
         & .linkWrapper {
-          padding: 30px 0 10px 0;
+          padding: 0 0 20px 0;
           text-align: center;
           position: relative;
 

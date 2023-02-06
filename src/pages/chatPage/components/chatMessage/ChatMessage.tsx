@@ -1,8 +1,15 @@
 import React from 'react';
 
+import { MessageInterface } from '../../../../types/types';
 import styles from './ChatMessage.module.scss';
 
-const ChatMessage = ({ message, current_uid }: { message: any; current_uid: string }) => {
+const ChatMessage = ({
+  message,
+  current_uid,
+}: {
+  message: MessageInterface;
+  current_uid?: string;
+}) => {
   const time = new Date(message.createdAt).toLocaleTimeString('ru-RU');
 
   let isCurrentUser = false;
@@ -12,11 +19,11 @@ const ChatMessage = ({ message, current_uid }: { message: any; current_uid: stri
   }
 
   return (
-    <div>
-      <p className={`${isCurrentUser ? styles.sentByMe : styles.opponent}`}>
+    <div className={styles.wrapper}>
+      <div className={`${isCurrentUser ? styles.sentByMe : styles.sentByOpponent}`}>
         {!isCurrentUser ? (
           <>
-            <div className={`${styles.greyColor} ${styles.withMargin}`}>
+            <div className={styles.info}>
               {message.name}
               <i>{time}</i>
             </div>
@@ -25,12 +32,12 @@ const ChatMessage = ({ message, current_uid }: { message: any; current_uid: stri
         ) : (
           <>
             {message.text}
-            <div>
+            <div className={styles.myInfo}>
               <i>{time}</i>
             </div>
           </>
         )}
-      </p>
+      </div>
     </div>
   );
 };
