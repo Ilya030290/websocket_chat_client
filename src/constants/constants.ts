@@ -28,3 +28,4 @@ export const SignUpSchema = 'signup';
 export const LoginSchema = 'login';
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
+export const ENDPOINT = 'https://websocketchatserver-production.up.railway.app';

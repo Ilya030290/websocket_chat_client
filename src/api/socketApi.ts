@@ -5,6 +5,7 @@ import {
   Connect,
   CreateChat,
   DeleteChat,
+  ENDPOINT,
   GetMessagesHistory,
   Join,
   Message,
@@ -17,8 +18,7 @@ import { ChatInterface, MessageInterface } from '../types/types';
 export const socketApi = {
   socket: null as null | Socket,
   createConnection() {
-    // @ts-ignore
-    this.socket = ioClient(process.env.REACT_APP_API_URL);
+    this.socket = ioClient(ENDPOINT);
   },
   onConnect(onConnectHandler: () => void) {
     this.socket?.on(Connect, onConnectHandler);
