@@ -14,7 +14,6 @@ export const FetchMessagesHistory = 'app/getMessagesHistory';
 export const FetchMessages = 'app/fetchMessages';
 export const SendNewMessage = 'app/sendNewMessage';
 export const DeleteChatById = 'app/deleteChat';
-export const Endpoint = 'http://localhost:5000';
 export const Connect = 'connect';
 export const OutPutChats = 'output-chats';
 export const ChatCreated = 'chat-created';
