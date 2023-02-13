@@ -9,9 +9,11 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse<any, any>) => response.data,
   (error: AxiosError<CommonErrorResponseType>) => {
-    console.error(error.response?.data);
-
-    throw new Error(error.response?.data.error.message || 'Something went wrong!');
+    if (error.response) {
+      throw new Error(
+        Object.values(error.response.data.errors).find((err) => err.length !== 0)
+      );
+    }
   }
 );
 

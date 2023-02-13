@@ -21,6 +21,10 @@ const initialState: AuthReducerState = {
   isAuth: false,
   user: null,
   isOnline: false,
+  errors: {
+    login: '',
+    signup: '',
+  },
 };
 
 const slice = createSlice({
@@ -36,6 +40,12 @@ const slice = createSlice({
     setIsOnline: (state, action: PayloadAction<boolean>) => {
       state.isOnline = action.payload;
     },
+    setNewLoginError: (state, action: PayloadAction<string>) => {
+      state.errors.login = action.payload;
+    },
+    setNewSignUpError: (state, action: PayloadAction<string>) => {
+      state.errors.signup = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(logOutUser.fulfilled, (state) => {
@@ -47,7 +57,8 @@ const slice = createSlice({
 
 export const authReducer = slice.reducer;
 
-export const { setUser, setIsAuth, setIsOnline } = slice.actions;
+export const { setUser, setIsAuth, setIsOnline, setNewLoginError, setNewSignUpError } =
+  slice.actions;
 
 export const loginUser = createAsyncThunk(
   LoginUser,
@@ -61,8 +72,8 @@ export const loginUser = createAsyncThunk(
         thunkAPI.dispatch(setUser(response.user));
         thunkAPI.dispatch(setIsAuth(true));
       }
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+    } catch (error: any) {
+      thunkAPI.dispatch(setNewLoginError(error.toString()));
     } finally {
       thunkAPI.dispatch(setLoadingStatus(SUCCESS));
     }
@@ -81,8 +92,8 @@ export const signUpUser = createAsyncThunk(
         thunkAPI.dispatch(setUser(response.user));
         thunkAPI.dispatch(setIsAuth(true));
       }
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+    } catch (error: any) {
+      thunkAPI.dispatch(setNewSignUpError(error.toString()));
     } finally {
       thunkAPI.dispatch(setLoadingStatus(SUCCESS));
     }
@@ -93,7 +104,7 @@ export const logOutUser = createAsyncThunk(LogOutUser, async (param, thunkAPI) =
   thunkAPI.dispatch(setLoadingStatus(LOADING));
   try {
     await authApi.logout();
-  } catch (error) {
+  } catch (error: any) {
     return thunkAPI.rejectWithValue(error);
   } finally {
     thunkAPI.dispatch(setLoadingStatus(SUCCESS));
@@ -114,3 +125,11 @@ export const selectIsOnline = createSelector(
   getIsOnline,
   (isOnline: boolean) => isOnline
 );
+
+const getLoginError = (state: AppRootStateType): string => state.auth.errors.login;
+
+export const selectLoginError = createSelector(getLoginError, (error: string) => error);
+
+const getSignUpError = (state: AppRootStateType): string => state.auth.errors.signup;
+
+export const selectSignUpError = createSelector(getSignUpError, (error: string) => error);

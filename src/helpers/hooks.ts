@@ -1,15 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import { loginUser, signUpUser } from '../redux/authReducer';
 import { useAppDispatch } from '../types/types';
 import { SignUpSchema } from '../constants/constants';
-import { ROUTES } from '../router/routes';
 
 export const useSignUpLoginFormik = (schema: string) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues:
@@ -52,7 +49,6 @@ export const useSignUpLoginFormik = (schema: string) => {
           )
         : dispatch(loginUser({ email: values.email, password: values.password }));
       formik.resetForm();
-      navigate(ROUTES.MAIN_PAGE);
     },
   });
 

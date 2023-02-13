@@ -43,6 +43,10 @@ export interface AuthReducerState {
   isAuth: boolean;
   user: UserInterface | null;
   isOnline: boolean;
+  errors: {
+    login: string;
+    signup: string;
+  };
 }
 
 export interface AppReducerState {
@@ -61,10 +65,10 @@ export interface Input {
 
 export interface CommonErrorResponseType {
   data: null;
-  error: {
-    message?: string;
+  errors: {
     name: string;
-    status: number;
+    email: string;
+    password: string;
   };
 }
 

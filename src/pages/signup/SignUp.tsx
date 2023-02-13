@@ -4,22 +4,31 @@ import { useSelector } from 'react-redux';
 
 import { useSignUpLoginFormik } from '../../helpers/hooks';
 import { selectLoadingStatus } from '../../redux/appReducer';
-import { selectUser } from '../../redux/authReducer';
-import FullPageLoader from '../../common/components/Loaders/FullPageLoader';
+import {
+  selectSignUpError,
+  selectUser,
+  setNewSignUpError,
+} from '../../redux/authReducer';
+import { useAppDispatch } from '../../types/types';
+import MiniLoader from '../../common/components/Loaders/MiniLoader';
 import { ROUTES } from '../../router/routes';
 import { LOADING, SignUpSchema } from '../../constants/constants';
 import SignUpImage from '../../assets/signup-image.jpg';
 import styles from '../signup/SignUp.module.scss';
 
 const SignUp = () => {
-  const user = useSelector(selectUser);
   const loadingStatus = useSelector(selectLoadingStatus);
+  const signUpError = useSelector(selectSignUpError);
+  const user = useSelector(selectUser);
+  const dispatch = useAppDispatch();
 
   const formik = useSignUpLoginFormik(SignUpSchema);
 
-  if (loadingStatus === LOADING) {
-    return <FullPageLoader />;
-  }
+  React.useEffect(() => {
+    return () => {
+      dispatch(setNewSignUpError(''));
+    };
+  }, [dispatch]);
 
   if (user) {
     return <Navigate to={ROUTES.MAIN_PAGE} />;
@@ -69,8 +78,13 @@ const SignUp = () => {
               {formik.touched.password && formik.errors.password && (
                 <div className={styles.error}>{formik.errors.password}</div>
               )}
+              {signUpError && <div className={styles.error}>{signUpError}</div>}
               <div className={styles.signUpButton}>
-                <button type="submit">Sign Up</button>
+                {loadingStatus === LOADING ? (
+                  <MiniLoader />
+                ) : (
+                  <button type="submit">Sign Up</button>
+                )}
               </div>
             </form>
             <div className={styles.linkWrapper}>
